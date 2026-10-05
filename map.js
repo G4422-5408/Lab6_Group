@@ -1,4 +1,4 @@
-<script>
+
 var map = L.map('map').setView([29.8884, -97.9384], 14);
 
 var mapLink = '<a href="https://openstreetmap.org">OpenStreetMap</a>';
@@ -9,7 +9,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 function addMarkerWithBuffer() {
-    var point = turf.point([29.8886, -97.9420]);
+    var point = turf.point([-97.9420, 29.8886]);
     var buffered = turf.buffer(point, 1, { units: "miles" });
 
     L.geoJSON(buffered).addTo(map);
@@ -17,4 +17,3 @@ function addMarkerWithBuffer() {
 }
 
 addMarkerWithBuffer();
-</script>

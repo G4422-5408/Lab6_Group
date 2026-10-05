@@ -15,5 +15,4 @@ function addMarkerWithBuffer() {
     L.geoJSON(buffered).addTo(map);
     L.geoJSON(point).addTo(map);
 }
-
 addMarkerWithBuffer();

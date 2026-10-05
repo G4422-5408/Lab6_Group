@@ -8,15 +8,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18
 }).addTo(map);
 
-function addMarkerWithBuffer() {
-    var point = turf.point([29.8886, -97.9420]);
-    var buffered = turf.buffer(point, 1, { units: "miles" });
 
-    L.geoJSON(buffered).addTo(map);
-    L.geoJSON(point).addTo(map);
-}
 
 addMarkerWithBuffer();
 </script>
-
-//

@@ -1,4 +1,3 @@
-
 var map = L.map('map').setView([29.8884, -97.9384], 14);
 
 var mapLink = '<a href="https://openstreetmap.org">OpenStreetMap</a>';
@@ -16,3 +15,13 @@ function addMarkerWithBuffer() {
     L.geoJSON(point).addTo(map);
 }
 addMarkerWithBuffer();
+
+  var route = turf.lineString([
+    [-97.9384, 29.8884],
+    [-122.3321, 47.6062],
+]);
+  const result = turf.length(route, { units: "miles" });
+
+  L.geoJSON(route)
+    .bindPopup("Distance: " + result.toFixed(2)+ "miles")
+    .addTo(map);

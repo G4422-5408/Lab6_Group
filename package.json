@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@turf/length": "^7.4.0",
+    "@turf/turf": "^7.4.0"
+  }
+}

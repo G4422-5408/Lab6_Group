@@ -1,4 +1,3 @@
-import * as turf from "@turf/turf";
 var map = L.map('map').setView([29.8884, -97.9384], 14);
 
 var mapLink = '<a href="https://openstreetmap.org">OpenStreetMap</a>';
@@ -24,5 +23,5 @@ addMarkerWithBuffer();
   const result = turf.length(route, { units: "miles" });
 
   L.geoJSON(route)
-    .bindpopup("distance: " + result.toFixed(2)+ "miles")
-    .addTO(map);
+    .bindPopup("Distance: " + result.toFixed(2)+ "miles")
+    .addTo(map);

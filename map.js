@@ -25,3 +25,22 @@ addMarkerWithBuffer();
   L.geoJSON(route)
     .bindPopup("Distance: " + result.toFixed(2)+ "miles")
     .addTo(map);
+
+    var obstacleZone = turf.polygon([[
+        [-97.9450, 29.8920],
+        [-97.9380, 29.8920],
+        [-97.9380, 29.8890],
+        [-97.9450, 29.8890],
+        [-97.9450, 29.8920]
+    ]]);
+  L.geoJSON(obstacleZone, { style: { color: 'red', fillColor: 'red', fillOpacity
+  : 0.3 } }).addTo(map);
+  var pathStart = turf.point([-97.9480, 29.8900]);
+var pathEnd = turf.point([-97.9350, 29.8900]);
+L.geoJSON(pathStart).addTo(map);
+L.geoJSON(pathEnd).addTo(map);
+var obstacleAvoidedPath = turf.shortestPath(pathStart, pathEnd, {
+    obstacles: turf.featureCollection([obstacleZone])
+});
+L.geoJSON(obstacleAvoidedPath, { style: { color: 'blue', weight: 5 } })
+.addTo(map);

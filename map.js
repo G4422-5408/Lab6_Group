@@ -44,3 +44,21 @@ var obstacleAvoidedPath = turf.shortestPath(pathStart, pathEnd, {
 });
 L.geoJSON(obstacleAvoidedPath, { style: { color: 'blue', weight: 5 } })
 .addTo(map);
+
+function PolygonArea() {
+  var polygon = turf.polygon([
+    [
+      [-97.9450, 29.8850],
+      [-97.9480, 29.8850],
+      [-97.9480, 29.8820],
+      [-97.9450, 29.8820],
+      [-97.9450, 29.8850]
+    ],
+]);
+
+  var area = turf.area(polygon);
+  L.geoJSON(polygon)
+  .bindPopup("Area: " + area.toFixed(2) + " square meters")
+  .addTo(map);
+}
+PolygonArea();
